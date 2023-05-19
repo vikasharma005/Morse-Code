@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Morse Translator</title>
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<div class="container">
+<h1>Morse Code Translator</h1>
+<form method="POST" action="{{ url_for('translate') }}">
+<label for="text">Enter text:</label>
+<input type="text" id="text" name="text" placeholder="Enter text to translate">
+<br>
+<label for="mode">Translation mode:</label>
+<select id="mode" name="mode">
+<option value="to_morse">English to Morse</option>
+<option value="to_english">Morse to English</option>
+</select>
+<br>
+<input type="submit" value="Translate">
+</form>
+{% if result %}
+<div class="result">
+<p>{{ result }}</p>
+</div>
+{% endif %}
+</div>
+body>
+</html>
